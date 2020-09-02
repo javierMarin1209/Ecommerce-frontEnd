@@ -1,0 +1,42 @@
+
+
+.img{
+    width: 20%;
+    height: 25%;
+    margin-left: 40%;
+    margin-top: 10px;
+}
+.text-title{
+    width: 20%;
+    height: 25%;
+    margin-left: 42%;
+    margin-top: 10px;
+    color: #1E9EF4;
+}
+.text{
+    width: 20%;
+    height: 25%;
+    margin-left: 47%;
+    margin-top: 10px;
+    color: #1E9EF4;
+}
+.footer {
+    position:fixed;
+    bottom: 0px;
+    width:100%;
+}
+#iniciar{
+    margin-left: 10%;
+}
+.button{
+    margin-left: 40%;
+    margin-top: 10px;
+}
+.example-full-width{
+    margin-left: 40%;
+    margin-top: 2%;
+    width: 20%;
+}
+.input{
+    width: 100%;
+}

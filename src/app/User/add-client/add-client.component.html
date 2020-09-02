@@ -1,0 +1,54 @@
+<div>
+    <h3 class="text-title">IASECOMMERCE</h3>
+    <img class="img" src="assets/images/registry.png">
+    <h3 class="text">Registro</h3>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput [formControl]="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Porfavor ingrese un correo valido
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                El campo es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput [formControl]="name" placeholder="Javier Marin">
+            <mat-error *ngIf="name.hasError('required')">
+                El campo es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+                <input type="password"matInput [formControl]="password" placeholder="Password">
+            <mat-error *ngIf="password.hasError('required')&&!password.hasError('pattern')">
+                El campo es <strong>requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="password.hasError('pattern')">
+                la contraseña debe contener mayusuculas, minusculas, numeros, minimo 8 caracteres
+            </mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+            <mat-label>Confirm password</mat-label>
+            <input type="password"matInput [formControl]="newPassword" placeholder="Same Password">
+            <mat-error *ngIf="newPassword.hasError('required') && verifyPassword()">
+                El campo es <strong>requerido</strong>
+            </mat-error>
+            <mat-hint *ngIf="verifyPassword()">
+                Las contraseñas no son las mismas
+            </mat-hint>
+        </mat-form-field>
+    </form>
+    <div class="button">
+        <button (click)="registrar()" id="iniciar"mat-raised-button color="primary">Registrarme</button>
+    </div>
+    <footer class="footer">
+        <div>Icons made by <a href="https://www.flaticon.com/free-icon/id_992866" title="geotatah">geotatah</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
+</div>
+  
