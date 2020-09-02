@@ -5,5 +5,6 @@ export class User{
     name:String;
     type:UserType;
     password:String;
+    tmpPassword:String;
     status:boolean;
 }

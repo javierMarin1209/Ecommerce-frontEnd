@@ -26,8 +26,9 @@ export class LogInComponent implements OnInit {
     .subscribe(data=>{
       this.response=data;
       if(this.response.success){
-        sessionStorage.setItem("email",this.response.response.email);
         alert(this.response.error);
+        sessionStorage.setItem("email",this.response.response.email);
+        sessionStorage.setItem("nombre",this.response.response.name);
       }else{
         alert(this.response.error);
       }
@@ -37,6 +38,9 @@ export class LogInComponent implements OnInit {
 
   registrar(){
     this.router.navigate(["addClient"]);
+  }
+  olvido(){
+    this.router.navigate(["forgotPassword"]);
   }
 }
 

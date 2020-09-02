@@ -16,4 +16,10 @@ export class UserServiceService {
   Registry(user){
     return this.http.post<Response>(this.base+'/create', user);
   }
+  ForgotPassword(user){
+    return this.http.post<Response>(this.base+'/forgotPassword', user);
+  }
+  ConfirmPassword(user){
+    return this.http.post<Response>(this.base+'/confirmPassword', user);
+  }
 }

@@ -13,12 +13,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient,HttpClientModule  } from '@angular/common/http';
 import { AddClientComponent } from './User/add-client/add-client.component';
 import { ClientComponent } from './Principal/client/client.component';
+import { ForgotPasswordComponent } from './User/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     AddClientComponent,
-    ClientComponent
+    ClientComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

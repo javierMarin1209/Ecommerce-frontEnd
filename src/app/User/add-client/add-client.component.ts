@@ -12,7 +12,6 @@ import { Response } from 'src/app/Moldelo/Response';
   styleUrls: ['./add-client.component.css']
 })
 export class AddClientComponent implements OnInit {
-  checkPassword=false
   user= new User();
   response = new Response();
   constructor(private service:UserServiceService, private router:Router) { 
@@ -42,17 +41,23 @@ export class AddClientComponent implements OnInit {
       this.user.name=this.name.value;
       this.user.type=UserType.Cliente;
       this.user.password=this.password.value;
+      this.user.status=true;
       this.service.Registry(this.user)
     .subscribe(data=>{
       this.response=data;
       if(this.response.success){
         alert(this.response.error);
+        sessionStorage.setItem("email",this.email.value);
+        console.log(this.response.success);
+        sessionStorage.setItem("nombre",this.name.value);
+        
+        this.router.navigate(["principalClient"]);
       }else{
         alert(this.response.error);
       }
     })
     }else{
-      alert("porfavor verifique los datos ingresados")
+      alert("porfavor verifique los datos ingresados");
     }
   }
   verifyPassword(){
