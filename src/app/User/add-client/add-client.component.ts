@@ -33,7 +33,6 @@ export class AddClientComponent implements OnInit {
   ]);
   newPassword = new FormControl('', [
     Validators.required,
-    
   ]);
   registrar(){
     if(this.password.valid&&this.email.valid&&this.name&&this.newPassword&&this.verifyPassword){

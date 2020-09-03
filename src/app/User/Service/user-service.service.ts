@@ -22,4 +22,7 @@ export class UserServiceService {
   ConfirmPassword(user){
     return this.http.post<Response>(this.base+'/confirmPassword', user);
   }
+  ChangePassword(user){
+    return this.http.post<Response>(this.base+'/changePassword', user);
+  }
 }

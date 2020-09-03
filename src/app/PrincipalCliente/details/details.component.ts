@@ -17,6 +17,9 @@ export class DetailsComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("nombre")==null){
+      this.router.navigate(["login"]);
+    }
   }
   cantidad= new FormControl('', [
     Validators.required

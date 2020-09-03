@@ -8,6 +8,7 @@ import { DetailsComponent } from './PrincipalCliente/details/details.component';
 import { CartshoppingComponent } from './PrincipalCliente/cartshopping/cartshopping.component';
 import { AllOrdersComponent } from './PrincipalCliente/all-orders/all-orders.component';
 import { ChangePasswordComponent } from './PrincipalCliente/change-password/change-password.component';
+import { OrderDetailsClientComponent } from './PrincipalCliente/order-details-client/order-details-client.component';
 const routes: Routes = [
   {path:'login',component:LogInComponent},
   {path:'addClient',component:AddClientComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'detailsProduct',component:DetailsComponent},
   {path:'cartShopping',component:CartshoppingComponent},
   {path:'allOrdersClient',component:AllOrdersComponent},
-  {path:'ChangePasswordClient',component:ChangePasswordComponent}];
+  {path:'ChangePasswordClient',component:ChangePasswordComponent},
+  {path:'orderDetailsClient',component:OrderDetailsClientComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

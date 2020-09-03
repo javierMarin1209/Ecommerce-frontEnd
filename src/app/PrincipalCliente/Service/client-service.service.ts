@@ -16,4 +16,16 @@ export class ClientServiceService {
   AgregarOrden(RequestOrder){
     return this.http.post<Response>(this.baseOrder+'/create',RequestOrder);
   }
+  BuscarPorCliente(RequestOrder){
+    return this.http.post<Response>(this.baseOrder+'/findByUser',RequestOrder);
+  }
+  BuscarOrden(RequestOrder){
+    return this.http.post<Response>(this.baseOrder+'/findOne',RequestOrder);
+  }
+  Pagar(RequestOrder){
+    return this.http.post<Response>(this.baseOrder+'/payOrder',RequestOrder);
+  }
+  Eliminar(RequestOrder){
+    return this.http.post<Response>(this.baseOrder+'/delete',RequestOrder);
+  }
 }

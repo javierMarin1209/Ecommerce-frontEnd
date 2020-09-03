@@ -24,6 +24,7 @@ import { DetailsComponent } from './PrincipalCliente/details/details.component';
 import { CartshoppingComponent } from './PrincipalCliente/cartshopping/cartshopping.component';
 import { AllOrdersComponent } from './PrincipalCliente/all-orders/all-orders.component';
 import { ChangePasswordComponent } from './PrincipalCliente/change-password/change-password.component';
+import { OrderDetailsClientComponent } from './PrincipalCliente/order-details-client/order-details-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { ChangePasswordComponent } from './PrincipalCliente/change-password/chan
     DetailsComponent,
     CartshoppingComponent,
     AllOrdersComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    OrderDetailsClientComponent
   ],
   imports: [
     BrowserModule,
