@@ -1,0 +1,84 @@
+<div>
+    <mat-toolbar color="primary">
+      <button (click)="irHome()" mat-icon-button>
+        <mat-icon  class="mat-icon">home</mat-icon>
+      </button>
+        <span class="mat-icon" id="welcome">{{name}}, no te quedes con el antojo</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon">
+          <mat-icon class="mat-icon" matBadge={{count}} matBadgeColor="warn">shopping_cart</mat-icon>
+        </button>
+        <button class="mat-icon" id="menu"mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="irOrdenes()" mat-menu-item>
+            <mat-icon class="mat-icon">description</mat-icon>
+            <span>Ordenes</span>
+          </button>
+            <button (click)="irPassword()"mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Cambiar contraseña</span>
+            </button>
+            <button (click)="salir()"mat-menu-item>
+              <mat-icon class="mat-icon">navigate_before</mat-icon>
+              <span>salir</span>
+            </button>
+          </mat-menu>
+    </mat-toolbar>    
+</div>
+<div class="mat-elevation-z8" *ngIf="exist">
+  <table mat-table [dataSource]="dataSource" class="table">
+
+      <!-- Position Column -->
+    <ng-container matColumnDef="productProductId">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.productProductId}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="productName" style="margin: 100px;">
+      <th mat-header-cell *matHeaderCellDef style="margin-left: 100px;"> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="basePrice">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let element"> {{element.basePrice}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="taxPrice">
+      <th mat-header-cell *matHeaderCellDef> impuesto </th>
+      <td mat-cell *matCellDef="let element" > {{element.taxPrice}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+      <td mat-cell *matCellDef="let element" > {{element.quantity}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="detalles">
+      <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+      <td mat-cell *matCellDef="let element"><button (click)="eliminarProducto(element)" mat-button color="primary">Eliminar</button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div>
+      <p id="label">Registra tu orden para poderla pagar!</p>
+      <button class="button-footer"(click)="agregar()" mat-raised-button color="primary">Registrar Orden</button>
+  </div>  
+</div>
+<div class="imgBig mat-elevation-z8" *ngIf="!exist">
+  <div class="img"><img class="img" src="assets/images/sad.png"></div>
+  <div class="img"><h1>No has ingresado nada al carrito ve a comprar!!!</h1></div>
+</div>
+
+<footer class="footer">
+  <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</footer>

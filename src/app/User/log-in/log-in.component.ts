@@ -4,6 +4,7 @@ import {Response} from 'src/app/Moldelo/Response';
 import { FormControl } from '@angular/forms';
 import { UserServiceService } from '../Service/user-service.service';
 import { Router } from '@angular/router';
+import { UserType } from 'src/app/Moldelo/UserType';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -14,9 +15,13 @@ export class LogInComponent implements OnInit {
   password = new FormControl('');
   user= new User();
   response = new Response();
+  
   constructor(private service:UserServiceService, private router:Router) {
-     }
+       
+  }
   ngOnInit() {
+    sessionStorage.clear();
+    sessionStorage.clear();
   }
   
   LogIn(){
@@ -26,9 +31,20 @@ export class LogInComponent implements OnInit {
     .subscribe(data=>{
       this.response=data;
       if(this.response.success){
-        alert(this.response.error);
         sessionStorage.setItem("email",this.response.response.email);
         sessionStorage.setItem("nombre",this.response.response.name);
+        console.log(this.response.response.type);
+        switch(this.response.response.type){
+          case "Cliente":
+            this.router.navigate(["principalClient"]);
+          break;
+          case UserType.Administrador:
+            alert(this.response.error);
+          break;
+          case UserType.Empleado:
+            alert(this.response.error);
+          break;
+        }
       }else{
         alert(this.response.error);
       }

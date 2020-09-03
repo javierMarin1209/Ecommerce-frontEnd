@@ -1,0 +1,80 @@
+<div>
+    <mat-toolbar color="primary">
+        <button (click)="irHome()" mat-icon-button>
+            <mat-icon  class="mat-icon">home</mat-icon>
+          </button>
+        <span class="mat-icon" id="welcome">{{name}}, Compra el producto <strong>{{product.name}}</strong> no te quedes con el antojo</span>
+        <span class="example-spacer"></span>
+        <button (click)="irCarrito()" mat-icon-button>
+          <mat-icon  class="mat-icon" matBadge={{count}} matBadgeColor="warn">shopping_cart</mat-icon>
+        </button>
+        <button class="mat-icon" id="menu"mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="irOrdenes()" mat-menu-item>
+                <mat-icon class="mat-icon">description</mat-icon>
+                <span>Ordenes</span>
+              </button>
+            <button (click)="irPassword()" mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Cambiar contraseña</span>
+            </button>
+            <button (click)="salir()"mat-menu-item>
+              <mat-icon class="mat-icon">navigate_before</mat-icon>
+              <span>salir</span>
+            </button>
+          </mat-menu>
+    </mat-toolbar>      
+</div>
+<div class="mat-elevation-z8">
+
+    <table class="table" cellspacing="0">
+        <tr>
+            <td>
+                <mat-label>Nombre: </mat-label>
+            </td>
+            <td>
+                <mat-label>{{product.name}}</mat-label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Precio:</mat-label>
+            </td>
+            <td>
+                <mat-label>{{product.basePrice.toFixed(2)}}</mat-label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Impuestos:</mat-label>
+            </td>
+            <td>
+                <mat-label>{{product.taxRate.toFixed(2)}}</mat-label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Cantidad disponible</mat-label>
+            </td>
+            <td>
+                <mat-label>{{product.inventoryQuantity}}</mat-label>
+            </td>
+        </tr>
+    </table>
+    <mat-label>descripción:<p></p></mat-label>
+    
+    <mat-label>{{product.description}}</mat-label>
+    <mat-form-field class="example-complite-width">
+        <mat-label>Cantidad deseada</mat-label>
+        <input matInput type="number"matInput [formControl]="cantidad">
+        <mat-error *ngIf="cantidad.hasError('required')&&verificarCantidad()">
+            El campo es <strong>requerido</strong>
+        </mat-error>
+        <mat-hint *ngIf="verificarCantidad()">
+            No se encuentra el stock disponible
+        </mat-hint>
+    </mat-form-field>
+    <button class="button-footer"(click)="agregar()" id="login" mat-raised-button color="primary">Agregar al carrito</button>
+</div>
