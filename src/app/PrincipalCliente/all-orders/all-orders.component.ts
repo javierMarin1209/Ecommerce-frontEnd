@@ -2,7 +2,7 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { RequestOrder } from 'src/app/Moldelo/RequestOrder';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import { ClientServiceService } from 'src/app/PrincipalCliente/Service/client-service.service';
+import { OrderService } from 'src/app/Principal/Service/order.service';
 import {Response} from 'src/app/Moldelo/Response';
 import { Router } from '@angular/router';
 import { ResponseOrder } from 'src/app/Moldelo/ResponseOrder';
@@ -21,7 +21,7 @@ export class AllOrdersComponent implements OnInit {
   response = new Response();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor( private router:Router,private service:ClientServiceService) {
+  constructor( private router:Router,private service:OrderService) {
     this.requestOrder.userXorders=sessionStorage.getItem("email");
     this.service.BuscarPorCliente(this.requestOrder)
     .subscribe(data=>{

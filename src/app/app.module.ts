@@ -25,6 +25,14 @@ import { CartshoppingComponent } from './PrincipalCliente/cartshopping/cartshopp
 import { AllOrdersComponent } from './PrincipalCliente/all-orders/all-orders.component';
 import { ChangePasswordComponent } from './PrincipalCliente/change-password/change-password.component';
 import { OrderDetailsClientComponent } from './PrincipalCliente/order-details-client/order-details-client.component';
+import { HomeComponent } from './PrincipalEmploye/home/home.component';
+import { CreateProductComponent } from './PrincipalEmploye/create-product/create-product.component';
+import { ModifyProductComponent } from './PrincipalEmploye/modify-product/modify-product.component';
+import { AllOrdersEmployeComponent } from './PrincipalEmploye/all-orders-employe/all-orders-employe.component';
+import { ListProductComponent } from './PrincipalEmploye/list-product/list-product.component';
+import { DetailsOrderEmployeComponent } from './PrincipalEmploye/details-order-employe/details-order-employe.component'; 
+import {MatRadioModule} from '@angular/material/radio';
+import { ChangePasswordEmployeComponent } from './PrincipalEmploye/change-password-employe/change-password-employe.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +44,14 @@ import { OrderDetailsClientComponent } from './PrincipalCliente/order-details-cl
     CartshoppingComponent,
     AllOrdersComponent,
     ChangePasswordComponent,
-    OrderDetailsClientComponent
+    OrderDetailsClientComponent,
+    HomeComponent,
+    CreateProductComponent,
+    ModifyProductComponent,
+    AllOrdersEmployeComponent,
+    ListProductComponent,
+    DetailsOrderEmployeComponent,
+    ChangePasswordEmployeComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +68,7 @@ import { OrderDetailsClientComponent } from './PrincipalCliente/order-details-cl
     MatBadgeModule,
     MatTableModule,
     MatPaginatorModule,
+    MatRadioModule,
     BrowserAnimationsModule
   ],
   providers: [],

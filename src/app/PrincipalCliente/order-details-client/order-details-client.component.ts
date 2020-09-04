@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientServiceService } from 'src/app/PrincipalCliente/Service/client-service.service';
+import { OrderService } from 'src/app/Principal/Service/order.service';
 import { RequestOrder } from 'src/app/Moldelo/RequestOrder';
 import { Response } from 'src/app/Moldelo/Response';
 
@@ -18,7 +18,7 @@ export class OrderDetailsClientComponent implements OnInit {
   request= new RequestOrder();
   response= new Response();
   responseOrder=JSON.parse(sessionStorage.selecionado);
-  constructor(private router:Router,private service:ClientServiceService) {
+  constructor(private router:Router,private service:OrderService) {
     this.dataSource = this.responseOrder.productXorders;
     if(this.responseOrder.state=="Registrada"){
       this.show=true;

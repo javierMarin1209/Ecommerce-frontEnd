@@ -9,6 +9,13 @@ import { CartshoppingComponent } from './PrincipalCliente/cartshopping/cartshopp
 import { AllOrdersComponent } from './PrincipalCliente/all-orders/all-orders.component';
 import { ChangePasswordComponent } from './PrincipalCliente/change-password/change-password.component';
 import { OrderDetailsClientComponent } from './PrincipalCliente/order-details-client/order-details-client.component';
+import { HomeComponent } from './PrincipalEmploye/home/home.component';
+import { CreateProductComponent } from './PrincipalEmploye/create-product/create-product.component';
+import { ListProductComponent } from './PrincipalEmploye/list-product/list-product.component';
+import { ModifyProductComponent } from './PrincipalEmploye/modify-product/modify-product.component';
+import { AllOrdersEmployeComponent } from './PrincipalEmploye/all-orders-employe/all-orders-employe.component';
+import { DetailsOrderEmployeComponent } from './PrincipalEmploye/details-order-employe/details-order-employe.component';
+import { ChangePasswordEmployeComponent } from './PrincipalEmploye/change-password-employe/change-password-employe.component';
 const routes: Routes = [
   {path:'login',component:LogInComponent},
   {path:'addClient',component:AddClientComponent},
@@ -18,7 +25,15 @@ const routes: Routes = [
   {path:'cartShopping',component:CartshoppingComponent},
   {path:'allOrdersClient',component:AllOrdersComponent},
   {path:'ChangePasswordClient',component:ChangePasswordComponent},
-  {path:'orderDetailsClient',component:OrderDetailsClientComponent}];
+  {path:'orderDetailsClient',component:OrderDetailsClientComponent},
+  {path:'homeEmploye',component:HomeComponent},
+  {path:'createProduct',component:CreateProductComponent},
+  {path:'listProducts',component:ListProductComponent},
+  {path:'modifyProduct',component:ModifyProductComponent},
+  {path:'allOrdersEmploye',component:AllOrdersEmployeComponent},
+  {path:'detailsOrder',component:DetailsOrderEmployeComponent},
+  {path:'ChangePasswordEmploye',component:ChangePasswordEmployeComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

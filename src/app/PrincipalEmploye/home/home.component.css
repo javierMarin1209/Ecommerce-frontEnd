@@ -1,0 +1,36 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+#menu{
+  margin-left: 20px;
+}
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.principal{
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 25%;
+    margin: 20px;
+}
+.span{
+    width: 100%;
+    padding:20px;
+    text-align: center;
+  }
+.img{
+    padding:20px;
+    width: 40%;
+}
+.footer {
+    position:fixed;
+    bottom: 0px;
+    width:100%;
+}

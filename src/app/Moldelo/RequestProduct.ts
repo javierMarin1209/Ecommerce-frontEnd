@@ -7,5 +7,6 @@ export class RequestProduct{
     description:string;
     basePrice:number;
     taxRate:number;
-    productStatus:ProductStatus;
+    productStatus:string;
+    inventoryQuantity:number;
 }

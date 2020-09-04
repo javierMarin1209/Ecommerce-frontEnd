@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { Product } from 'src/app/Moldelo/Product';
-import { ClientServiceService } from 'src/app/PrincipalCliente/Service/client-service.service';
+import { ProductService } from 'src/app/Principal/Service/product.service';
 import {Response} from 'src/app/Moldelo/Response';
 
 @Component({
@@ -19,7 +19,7 @@ export class ClientComponent implements OnInit {
   count=sessionStorage.getItem("Nproductos");
   response = new Response();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  constructor( private router:Router,private service:ClientServiceService) {
+  constructor( private router:Router,private service:ProductService) {
     this.service.ConsultarPublicos()
     .subscribe(data=>{
       this.response=data;

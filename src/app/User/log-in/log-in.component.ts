@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from 'src/app/Moldelo/User';
 import {Response} from 'src/app/Moldelo/Response';
 import { FormControl } from '@angular/forms';
-import { UserServiceService } from '../Service/user-service.service';
+import { UserService } from 'src/app/Principal/Service/user.service';
 import { Router } from '@angular/router';
 import { UserType } from 'src/app/Moldelo/UserType';
 @Component({
@@ -16,7 +16,7 @@ export class LogInComponent implements OnInit {
   user= new User();
   response = new Response();
   
-  constructor(private service:UserServiceService, private router:Router) {
+  constructor(private service:UserService, private router:Router) {
        
   }
   ngOnInit() {
@@ -33,16 +33,14 @@ export class LogInComponent implements OnInit {
       if(this.response.success){
         sessionStorage.setItem("email",this.response.response.email);
         sessionStorage.setItem("nombre",this.response.response.name);
-        console.log(this.response.response.type);
         switch(this.response.response.type){
           case "Cliente":
             this.router.navigate(["principalClient"]);
           break;
           case UserType.Administrador:
-            alert(this.response.error);
           break;
-          case UserType.Empleado:
-            alert(this.response.error);
+          case "Empleado":
+            this.router.navigate(["homeEmploye"]);
           break;
         }
       }else{

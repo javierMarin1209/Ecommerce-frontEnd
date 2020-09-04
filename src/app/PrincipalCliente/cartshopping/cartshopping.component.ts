@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import { ClientServiceService } from 'src/app/PrincipalCliente/Service/client-service.service';
+import { OrderService } from 'src/app/Principal/Service/order.service';
 import {Response} from 'src/app/Moldelo/Response';
 import { ProductXorder } from 'src/app/Moldelo/productXorder';
 import { RequestOrder } from 'src/app/Moldelo/RequestOrder';
@@ -21,7 +20,7 @@ export class CartshoppingComponent implements OnInit {
   count=sessionStorage.getItem("Nproductos");
   response = new Response();
   requestOrder= new RequestOrder();
-  constructor(private router:Router,private service:ClientServiceService) { 
+  constructor(private router:Router,private service:OrderService) { 
     if(sessionStorage.getItem("carritoActivo")!=null){
       this.Products= JSON.parse(sessionStorage.carritoActivo);
       this.dataSource = new MatTableDataSource<ProductXorder>(this.Products);

@@ -1,0 +1,77 @@
+<div>
+    <mat-toolbar color="primary">
+        <button (click)="irHome()" mat-icon-button>
+            <mat-icon  class="mat-icon">home</mat-icon>
+          </button>
+        <span class="mat-icon" id="welcome">{{name}}, Bienvenido</span>
+        <span class="example-spacer"></span>
+        <button (click)="irOrdenes()" mat-icon-button>
+            <mat-icon  class="mat-icon" matBadge={{count}} matBadgeColor="warn">description</mat-icon>
+          </button>
+        <button class="mat-icon" id="menu"mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="irCambio()" mat-menu-item>
+                <mat-icon class="mat-icon">settings</mat-icon>
+                <span>Cambiar contraseña</span>
+              </button>
+            <button (click)="salir()"mat-menu-item>
+              <mat-icon class="mat-icon">navigate_before</mat-icon>
+              <span>salir</span>
+            </button>
+          </mat-menu>
+    </mat-toolbar>      
+</div>
+<div class="mat-elevation-z8">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput [formControl]="nombre" placeholder="{{product.name}}" type="text">
+            <mat-error *ngIf="!nombre.hasError('maxLength')">
+                El campo no superar <strong>100</strong> caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Precio</mat-label>
+            <input type="number" matInput [formControl]="price" placeholder="{{product.basePrice.toFixed(2)}}">
+            <mat-error *ngIf="price.hasError('min')">
+                El campo No puede ser <strong>0</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Impuestos</mat-label>
+            <input matInput [formControl]="tax" placeholder="{{product.taxRate.toFixed(2)}}"type="number">
+            <mat-error *ngIf="tax.hasError('min')">
+                El campo No puede ser <strong>0</strong>
+            </mat-error>
+            <mat-error *ngIf="tax.hasError('max')">
+                El campo no puede ser <strong>1 o superior</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Cantidad disponible</mat-label>
+            <input matInput [formControl]="quantity" placeholder="{{product.inventoryQuantity}}" type="number">
+            <mat-error *ngIf="quantity.hasError('min')">
+                El campo No puede ser <strong>0</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>descripción</mat-label>
+            <textarea   matInput [formControl]="description" placeholder="{{product.description}}" type="text"></textarea>
+            <mat-error *ngIf="!description.hasError('maxLength')">
+                El campo no superar <strong>280</strong> caracteres
+            </mat-error>
+          </mat-form-field>
+          <div class="example-full-width">
+            <mat-label>Estado:</mat-label>
+            <p></p>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="state">
+                    <mat-radio-button class="example-radio-button" *ngFor="let state of states" [value]="state" style="padding: 10px;">
+                        {{state}}
+                    </mat-radio-button>
+                </mat-radio-group>
+        </div>
+    <button class="button-footer"(click)="Modificar()" id="login" mat-raised-button color="warn">Modificar</button>
+</div>

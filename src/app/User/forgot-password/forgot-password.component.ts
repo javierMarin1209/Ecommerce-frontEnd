@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import { UserServiceService } from '../Service/user-service.service';
+import { UserService } from 'src/app/Principal/Service/user.service';
 import { Router } from '@angular/router';
 import {User} from 'src/app/Moldelo/User';
 import { Response } from 'src/app/Moldelo/Response';
@@ -14,7 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
   user= new User();
   response = new Response();
   disable =false;
-  constructor(private service:UserServiceService, private router:Router) { }
+  constructor(private service:UserService, private router:Router) { }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserServiceService } from 'src/app/User/Service/user-service.service';
+import { UserService } from 'src/app/Principal/Service/user.service';
 import {FormControl, Validators} from '@angular/forms';
 import {User} from 'src/app/Moldelo/User';
 import { Response } from 'src/app/Moldelo/Response';
@@ -15,9 +15,12 @@ export class ChangePasswordComponent implements OnInit {
   count=sessionStorage.getItem("Nproductos");
   user= new User();
   response = new Response();
-  constructor( private router:Router,private service:UserServiceService) { }
+  constructor( private router:Router,private service:UserService) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("nombre")==null){
+      this.router.navigate(["login"]);
+    }
   }
 
   password = new FormControl('', [
@@ -47,7 +50,7 @@ export class ChangePasswordComponent implements OnInit {
       }else{
         alert(this.response.error);
       }
-    })
+    });
     }else{
       alert("porfavor verifique los datos ingresados");
     }

@@ -1,0 +1,42 @@
+<div>
+    <mat-toolbar color="primary">
+        <button (click)="irHome()" mat-icon-button>
+            <mat-icon  class="mat-icon">home</mat-icon>
+          </button>
+        <span class="mat-icon" id="welcome">{{name}}, Bienvenido</span>
+        <span class="example-spacer"></span>
+        <button (click)="irOrdenes()" mat-icon-button>
+            <mat-icon  class="mat-icon" matBadge={{count}} matBadgeColor="warn">description</mat-icon>
+          </button>
+        <button class="mat-icon" id="menu"mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="irCambio()" mat-menu-item>
+                <mat-icon class="mat-icon">settings</mat-icon>
+                <span>Cambiar contraseña</span>
+              </button>
+            <button (click)="salir()"mat-menu-item>
+              <mat-icon class="mat-icon">navigate_before</mat-icon>
+              <span>salir</span>
+            </button>
+          </mat-menu>
+    </mat-toolbar>      
+</div>
+<div class="body">
+    <div (click)="irProductos()" class="principal mat-elevation-z8">
+        <img class="img" src="assets/images/create.png">
+        <p class="span">Crear producto</p>
+    </div>
+    <div (click)="irUpdate()" class="principal mat-elevation-z8">
+        <img class="img" src="assets/images/update.png">
+        <p  class="span">Modificar producto</p>
+    </div>
+    <div (click)="irOrdenes()" class="principal mat-elevation-z8">
+        <img class="img" src="assets/images/paper.png">
+        <p class="span">Ordenes</p>
+    </div>
+</div>
+<div class="footer">
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</div>
