@@ -1,0 +1,67 @@
+<div>
+    <mat-toolbar color="primary">
+      <button (click)="irHome()" mat-icon-button>
+        <mat-icon  class="mat-icon">home</mat-icon>
+      </button>
+        <span class="mat-icon" id="welcome">Bienvenido: {{name}}</span>
+        <span class="example-spacer"></span>
+        <button class="mat-icon" id="menu"mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="irPassword()" mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              <span>Cambiar contraseña</span>
+            </button>
+            <button (click)="salir()"mat-menu-item>
+              <mat-icon class="mat-icon">navigate_before</mat-icon>
+              <span>salir</span>
+            </button>
+          </mat-menu>
+    </mat-toolbar>      
+</div>
+<div class="mat-elevation-z8">
+    <mat-form-field class="filter">
+        <mat-label>Buscar...</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Martinez" #input>
+      </mat-form-field>
+    <table mat-table [dataSource]="dataSource">
+  
+        <!-- Position Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="name" style="margin: 100px;">
+        <th mat-header-cell *matHeaderCellDef style="margin-left: 100px;"> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> estado </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Bloquear">
+        <th mat-header-cell *matHeaderCellDef> Bloquear </th>
+        <td mat-cell *matCellDef="let element"><button (click)="BlockUser(element)" mat-button [disabled]="!element.status" color="warn">Bloquear</button> </td>
+      </ng-container>
+  
+       <!-- Weight Column -->
+       <ng-container matColumnDef="Desbloquear">
+        <th mat-header-cell *matHeaderCellDef> Desbloquear </th>
+        <td mat-cell *matCellDef="let element"><button (click)="UnBlockuser(element)" mat-button color="primary" [disabled]="element.status" >Desbloquear</button> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+  

@@ -33,6 +33,9 @@ import { ListProductComponent } from './PrincipalEmploye/list-product/list-produ
 import { DetailsOrderEmployeComponent } from './PrincipalEmploye/details-order-employe/details-order-employe.component'; 
 import {MatRadioModule} from '@angular/material/radio';
 import { ChangePasswordEmployeComponent } from './PrincipalEmploye/change-password-employe/change-password-employe.component';
+import { HomeAdminComponent } from './PrincipalAdmin/home-admin/home-admin.component';
+import { ChangePasswordAdminComponent } from './PrincipalAdmin/change-password-admin/change-password-admin.component';
+import { CreateUserComponent } from './PrincipalAdmin/create-user/create-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,10 @@ import { ChangePasswordEmployeComponent } from './PrincipalEmploye/change-passwo
     AllOrdersEmployeComponent,
     ListProductComponent,
     DetailsOrderEmployeComponent,
-    ChangePasswordEmployeComponent
+    ChangePasswordEmployeComponent,
+    HomeAdminComponent,
+    ChangePasswordAdminComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

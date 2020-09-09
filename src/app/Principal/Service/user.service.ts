@@ -25,4 +25,10 @@ export class UserService {
  ChangePassword(user){
    return this.http.post<Response>(this.base+'/changePassword', user);
  }
+ FindAll(){
+  return this.http.post<Response>(this.base+'/findAll', null);
+  }
+  block(user){
+    return this.http.post<Response>(this.base+'/block', user);
+  }
 }

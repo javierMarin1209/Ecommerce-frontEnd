@@ -37,7 +37,8 @@ export class LogInComponent implements OnInit {
           case "Cliente":
             this.router.navigate(["principalClient"]);
           break;
-          case UserType.Administrador:
+          case "Administrador":
+            this.router.navigate(["HomeAdmin"]);
           break;
           case "Empleado":
             this.router.navigate(["homeEmploye"]);

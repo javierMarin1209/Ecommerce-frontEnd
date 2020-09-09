@@ -16,6 +16,9 @@ import { ModifyProductComponent } from './PrincipalEmploye/modify-product/modify
 import { AllOrdersEmployeComponent } from './PrincipalEmploye/all-orders-employe/all-orders-employe.component';
 import { DetailsOrderEmployeComponent } from './PrincipalEmploye/details-order-employe/details-order-employe.component';
 import { ChangePasswordEmployeComponent } from './PrincipalEmploye/change-password-employe/change-password-employe.component';
+import { HomeAdminComponent } from './PrincipalAdmin/home-admin/home-admin.component';
+import { ChangePasswordAdminComponent } from './PrincipalAdmin/change-password-admin/change-password-admin.component';
+import { CreateUserComponent } from './PrincipalAdmin/create-user/create-user.component';
 const routes: Routes = [
   {path:'login',component:LogInComponent},
   {path:'addClient',component:AddClientComponent},
@@ -32,7 +35,10 @@ const routes: Routes = [
   {path:'modifyProduct',component:ModifyProductComponent},
   {path:'allOrdersEmploye',component:AllOrdersEmployeComponent},
   {path:'detailsOrder',component:DetailsOrderEmployeComponent},
-  {path:'ChangePasswordEmploye',component:ChangePasswordEmployeComponent}
+  {path:'ChangePasswordEmploye',component:ChangePasswordEmployeComponent},
+  {path:'HomeAdmin',component:HomeAdminComponent},
+  {path:'ChangePasswordAdmin',component:ChangePasswordAdminComponent},
+  {path:'CreateUser',component:CreateUserComponent}
 ];
 
 @NgModule({
